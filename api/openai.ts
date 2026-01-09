@@ -1,8 +1,8 @@
 import OpenAI from "openai";
 
-// Import your schemas from src
-import workoutSchema from "../src/schemas/workoutSchema";
-import exerciseSchema from "../src/schemas/exerciseSchema";
+// Import schemas
+import workoutSchema from "../shared/schemas/workoutSchema";
+import exerciseSchema from "../shared/schemas/exerciseSchema";
 
 export default async function handler(req: any, res: any) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });

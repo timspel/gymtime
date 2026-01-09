@@ -1,5 +1,6 @@
 import { Muscles } from "../enums/MuscleEnum";
 
+
 const exerciseSchema = {
   type: "object",
   properties: {
