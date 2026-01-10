@@ -1,4 +1,4 @@
-import { Muscles } from "../enums/MuscleEnum";
+import { Muscles } from "../../shared/enums/MuscleEnum";
 
 export type Difficulty = "beginner" | "intermediate" | "advanced";
 export type Activation = "primary" | "secondary" | "tertiary";
