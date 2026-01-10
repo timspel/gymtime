@@ -1,4 +1,4 @@
-import { Muscles } from "../enums/MuscleEnum";
+import { Muscles } from "../enums/MuscleEnum.js";
 const workoutSchema = {
   type: "object",
   properties: {
