@@ -1,35 +1,53 @@
 # Gymtime
 
-## Instruktioner för att köra applikationen:
+Gymtime is a small web app that generates and displays workout plans using OpenAI. It provides a simple UI to choose muscle groups, generate workouts, and save or view generated workouts.
 
-- Om du inte redan är i projektets mapp, navigera till den via terminalen.
-- Skapa en “.env”-fil i root mappen och skriv in: `VITE_OPENAI_API_KEY=“Api nyckel här”`
-- Ersätt “Api nyckel här” med nyckeln som vi har lagt som kommentar på Canvas.
-- Skriv i terminalen: `npm install`
-- Skriv i terminalen: `npm run dev`
+Features
+- Generate workouts using OpenAI
+- Select muscle groups and customize workout parameters
+- Save and view previously generated workouts
 
-## Val av ramverk och jämförelse
+Tech stack
+- Vite + React + TypeScript
+- OpenAI API (via a small backend wrapper)
 
-Vi i gruppen har valt att använda oss av ramverk React. En av fördelarna med att använda React är att utöver, att alla gruppmedlemmar har en baskunskap inom ramverket och det lilla tidsfönstret som vi hade att genomföra projektet, är Reacts stora popularitet [1]. Eftersom biblioteket är så pass populärt så finns det mycket material på internet, såsom guider, som kan hjälpa till att förklara oklarheter och driva projektet framåt. Det största argumentet för att använda oss av React är att det används inom många stora it-företag [2], vilket skapar ett driv hos oss som systemutvecklings studenter till att stärka våra kunskaper inom React. Då det kan leda till bättre möjligheter på arbetsmarknaden efter examen. React har även den största efterfrågan på arbetsmarknaden när det gäller frontend-utveckling [3]. Utöver detta så valde vi att fördjupa våra kunskaper inom React istället för att lära oss ett helt nytt ramverk, då detta var mera i enlighet med den tid vi hade tillgänlig. Som i stort var begränsad på grund av andra kurser, till exempel examensarbetet.
+Prerequisites
+- Node.js 16+ and npm
 
-Vi kommer att jämföra React med två andra populära ramverk som heter Vue och Angular.
+Environment
+Create a `.env` file in the project root and set your OpenAI API key:
 
-### Varför inte Angular?
+```bash
+VITE_OPENAI_API_KEY="your-openai-api-key-here"
+```
 
-Angular är ett ramverk utvecklat av Google, som är väl anpassat för storskaliga och komplexa applikationer. Det erbjuder en bred mängd inbyggda funktioner som routing, formulärhantering, dependency injection. Angular kan också upplevas som tyngre i prestanda jämfört med React och Vue [3].
+Replace `your-openai-api-key-here` with the API key provided to you. On Windows PowerShell you can create the file with:
 
-En av anledningen till att Angular valdes bort är att ramverket “upplevs” vara komplext och svårare att lära sig enligt Medium [3]. Eftersom vi redan har förkunskaper inom React kändes det rätt att välja React över Angular eftersom vi inte har tid för att lära oss ett ramverk med en så pass brant inlärningskurva. En annan anledning till att Angular valdes bort är att ramverket fungerar som bäst på stora och komplexa applikationer [3], vilket blir svårt att appliceras på vårt projekt, eftersom det är i så pass liten skala.
+```powershell
+echo VITE_OPENAI_API_KEY="your-openai-api-key-here" > .env
+```
 
-### Varför inte Vue?
+Install and run
 
-Vue är ett progressivt JavaScript-ramverk som likt React är komponentbaserat och mycket populärt för att bygga moderna webbsidor. En av de främsta fördelarna med Vue är dess enkla inlärningskurva [3].
+```bash
+npm install
+npm run dev
+```
 
-Anledningar varför vi inte valt att skapa detta projekt i Vue inkluderar teamets befintliga kompetens inom React, eftersom vårt team redan har goda kunskaper i React, innebär ett byte till Vue en extra inlärningsfas som inte är nödvändig för projektets tidsplan. Investeringen för att lära sig ett nytt ramverk riskerar att bromsa utvecklingen, trots Vues lätta inlärningskurva. Sedan som tidigare nämnt så har Vue inte lika stor efterfrågan på arbetsmarknaden jämfört med React.
+This will start the Vite development server (default: http://localhost:5173).
 
-## Referenser
+Project structure (high level)
+- `src/` — React app source
+- `src/components/` — UI components (forms, header, generated workout view, etc.)
+- `api/` — small server or API helpers (OpenAI wrapper)
+- `shared/` — shared schemas and enums
 
-[1] “Stack Overflow Developer Survey 2023.” Stack Overflow. Accessed: May. 29, 2025. [Online.] Available: https://survey.stackoverflow.co/2023/#section-most-popular-technologies-web-frameworks
+Development notes
+- The OpenAI calls are proxied through the code in `api/openai.ts` and `src/services/openAi.ts`.
+- Schemas for exercises and workouts live in `shared/schemas/`.
 
-[2] E. Fetisov and A. Talochka. “Top 30 Companies Using ReactJS Development.” JayDevs. Accessed: May. 29, 2025. [Online.] Available: https://jaydevs.com/top-companies-using-react-js/
+Building for production
 
-[3] Weiwei. “React, Vue, or Angular: Making the Right Choice for Your Project in 2025.” Medium. Accessed: May. 29, 2025. [Online.] Available: https://medium.com/@wutamy77/react-vue-or-angular-making-the-right-choice-for-your-project-in-2025-d6939751e575
+```bash
+npm run build
+```
